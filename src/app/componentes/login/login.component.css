@@ -1,3 +1,39 @@
-.form-control{
-    color: red !important;
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: flex-start; /* Cambiado a flex-start para alinear al inicio */
+    justify-content: center;
 }
+
+body {
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 2rem;
+    background-color: black; /* Color de fondo opcional */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    margin-top: 150px; /* Ajusta este valor para mover el formulario más abajo */
+    margin-left: 600px;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+    
+}
+.form-signin h1 {
+    color: white; /* Cambia el color a blanco */
+}
+.form-signin input[type="email"], 
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+}
+
+
+
+  

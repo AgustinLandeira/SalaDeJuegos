@@ -1,4 +1,3 @@
-
 html, body {
     height: 100%;
     margin: 0;
@@ -49,10 +48,25 @@ body {
 
 .iniciar-sesion{
     color: white;
-    margin-left: 35px;
+    margin-left: 15px;
     font-size: medium;
 }
 
 #titulo{
     font-size:x-large;
-}  
+}
+
+.alert-danger{
+    margin-left: 600px;
+    max-width:330px;
+    text-align: center;
+}
+
+.alert-success{
+
+    margin-left: 600px;
+    max-width:330px;
+    text-align: center;
+
+}
+

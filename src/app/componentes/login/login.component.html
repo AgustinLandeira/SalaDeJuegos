@@ -5,19 +5,28 @@
       <h1 class="h3 mb-3 fw-normal" id="titulo">Por favor inicia sesion</h1>
   
       <div class="form-floating">
-        <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com" >  
+        <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com" [(ngModel)]="mail">  
         <label for="floatingInput">correo electronico</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="contraseña" >
+        <input type="password" class="form-control" id="floatingPassword" placeholder="contraseña" [(ngModel)]="clave">
         <label for="floatingPassword">contraseña</label>
       </div>
       
-      <button class="btn btn-primary w-100 py-2" type="submit">iniciar sesion</button>
+      <button class="btn btn-primary w-100 py-2" type="submit" (click)="Login()">iniciar sesion</button>
       <br>
       <br>
       <a routerLink="/register"  routerLinkActive="active-route" class="iniciar-sesion"> ¿No tenes cuenta? Registrate.</a>
     
     </div>
 </main>
-  
+@if(this.logeado == false){
+
+  <div class="alert alert-danger" role="alert" id="error"> 
+    {{ error }}
+  </div>
+}@else if (this.logeado == true){
+  <div class="alert alert-success" role="alert">
+    Te registraste con exito.
+  </div>>
+}

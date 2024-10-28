@@ -3,7 +3,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Firestore, provideFirestore } from '@angular/fire/firestore';
-import { Auth } from '@angular/fire/auth';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -14,12 +15,57 @@ import { Auth } from '@angular/fire/auth';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  mail : string ="";
-  clave : string ="";
+  public mail : string ="";
+  public clave : string ="";
+  public logeado! : boolean;
+  public error : string = "";
 
-  constructor(router:Router,firestore :Firestore,auth: Auth){}
+  constructor(private router:Router,firestore :Firestore,private auth: Auth){}
 
 
+  Login(){
+
+    signInWithEmailAndPassword(this.auth,this.mail,this.clave).then((result) =>{
+      
+      this.showSuccessAlert("Acceso a juegos")
+      this.router.navigate(["home"]);
+    }).catch((e)=>{
+
+      this.logeado = false;
+
+      console.log(e.code);
+
+      switch(e.code){
+
+        case "auth/invalid-email":
+          this.error = "cuenta invalida"
+          break;
+        
+        case "auth/invalid-credential":
+          this.error = "la cuenta/contraseña no existe"
+          break;
+        
+        default :
+          this.error = "error desconocido"
+          break;
+        
+        
+      }
+
+    });
+  }
+
+  private showSuccessAlert(message: string) {
+    return Swal.fire({
+      title: 'Ingreso exitoso',
+      text: message,
+      icon: 'success',
+      confirmButtonText: 'OK',
+      background : "black",
+      color: "green",
+      confirmButtonColor: "green"
+    });
+  }
   
 
 }

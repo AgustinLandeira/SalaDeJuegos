@@ -55,4 +55,18 @@ body {
 
 #titulo{
     font-size:x-large;
-}  
+}
+
+.alert-danger{
+    margin-left: 600px;
+    max-width:330px;
+    text-align: center;
+}
+
+.alert-success{
+
+    margin-left: 600px;
+    max-width:330px;
+    text-align: center;
+
+}

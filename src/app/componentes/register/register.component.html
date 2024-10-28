@@ -4,12 +4,12 @@
         <h1 class="h3 mb-3 fw-normal" id="titulo">Registrarse</h1>
     
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com" [(ngModel)]="mail">  
-          <label for="floatingInput">correo electronico</label>
+          <input type="email" class="form-control" id="register" placeholder="nombre@ejemplo.com" [(ngModel)]="mail">  
+          <label for="register">correo electronico</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="contraseña" [(ngModel)]="clave">
-          <label for="floatingPassword">contraseña</label>
+          <input type="password" class="form-control" id="Password" placeholder="contraseña" [(ngModel)]="clave">
+          <label for="Password">contraseña</label>
         </div>
         
         <button class="btn btn-primary w-100 py-2" type="submit" (click)="Registrar()">Registrarse</button>
@@ -24,9 +24,4 @@
       {{ msjError }}
     </div>
 
-  }@else if (this.registrado == true) {
-    <div class="alert alert-success" role="alert">
-      Te registraste con exito.
-    </div>>
-    
   }

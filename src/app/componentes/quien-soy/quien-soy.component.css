@@ -1,0 +1,130 @@
+#about-me {
+    background-color: #1b1b1b; /* Fondo negro que combina con el header */
+    color: #fff; /* Color de texto blanco para mayor contraste */
+    padding: 30px; /* Espaciado interno aumentado */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más intensa para dar profundidad */
+    max-width: 800px; /* Ancho máximo para una mejor presentación */
+    margin: 20px auto; /* Centrar el componente en la página */
+}
+
+#about-me h1 {
+    font-size: 36px; /* Tamaño de fuente más grande para el título principal */
+    text-align: center; /* Centrar el título */
+    margin-bottom: 20px; /* Espacio inferior */
+    color: #ff4d4d; /* Color que combina con el título en el header */
+}
+
+#about-me img {
+    display: block; /* Asegurar que la imagen esté centrada */
+    margin: 0 auto 20px; /* Margen inferior y centrado */
+    border: 4px solid #ffeb3b; /* Borde brillante alrededor de la imagen */
+    border-radius: 50%; /* Bordes redondeados para hacer la imagen circular */
+    width: 120px; /* Ajustar el ancho de la imagen de perfil */
+    height: 120px; /* Ajustar el alto de la imagen de perfil */
+    object-fit: contain;
+}
+
+h2 {
+    font-size: 20px; /* Tamaño de fuente para datos personales */
+    margin: 10px 0; /* Espacio arriba y abajo */
+}
+
+p {
+    font-size: 16px; /* Tamaño de fuente para la descripción */
+    line-height: 1.5; /* Espaciado entre líneas */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.seccion {
+    margin-bottom: 30px; /* Espacio entre secciones */
+}
+
+.seccion h1 {
+    font-size: 28px; /* Tamaño de fuente para los subtítulos */
+    margin-bottom: 15px; /* Espacio debajo del subtítulo */
+    color: #ffeb3b; /* Color del subtítulo para mantener la coherencia */
+    border-bottom: 2px solid #ff4d4d; /* Línea debajo del subtítulo para destacar */
+    padding-bottom: 5px; /* Espacio debajo del subtítulo */
+}
+
+.lista {
+    list-style: none; /* Sin viñetas en la lista */
+    padding: 0; /* Sin padding */
+}
+
+.lista-item {
+    display: flex; /* Usar flex para alinear imagen y texto */
+    align-items: center; /* Centrar verticalmente */
+    margin-bottom: 15px; /* Espacio entre ítems */
+    padding: 10px; /* Espaciado interno para cada ítem */
+    border: 1px solid #444; /* Borde oscuro alrededor de cada ítem */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #2a2a2a; /* Fondo gris oscuro para cada ítem */
+    transition: transform 0.2s; /* Efecto al pasar el cursor */
+}
+
+.lista-item:hover {
+    transform: scale(1.02); /* Aumentar ligeramente el tamaño al pasar el cursor */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Añadir sombra en hover */
+}
+
+.lenguaje-imagen, .framworks, .entorno, .entorno-trabajo {
+    width: 30px; /* Ajustar el ancho de las imágenes de los lenguajes y frameworks */
+    height: 30px; /* Ajustar el alto de las imágenes de los lenguajes y frameworks */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.lista-item span {
+    font-size: 18px; /* Tamaño de fuente para el nombre del lenguaje/framework */
+    color: #ffeb3b; /* Color del texto del span */
+    margin-left: 10px; /* Espacio entre la imagen y el texto */
+}
+ 
+button {
+    display: block; /* Hacer que el botón ocupe su propia línea */
+    margin: 20px auto; /* Centrar el botón en la página */
+    padding: 12px 24px; /* Espaciado interno del botón */
+    color: yellow; /* Color del texto del botón */
+    background-color: red; /* Color de fondo verde para un aspecto atractivo */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    font-size: 18px; /* Tamaño de fuente para mayor legibilidad */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efecto de transición para el fondo y escala */
+}
+
+button:hover {
+    background-color: #218838; /* Color de fondo más oscuro al pasar el cursor */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el cursor */
+}
+
+button:focus {
+    outline: none; /* Quitar el borde de enfoque predeterminado */
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Agregar sombra alrededor del botón cuando está enfocado */
+}
+
+
+body {
+    background-color: #000000; /* Fondo negro */
+    color: #ffffff; /* Color de texto blanco */
+    margin: 0; /* Eliminar margen por defecto */
+    font-family: Arial, sans-serif; /* Fuente general */
+    padding: 0;
+}
+
+p,h2 {
+    font-size: 16px; /* Tamaño de fuente para la descripción */
+    line-height: 1.5; /* Espaciado entre líneas */
+    margin-bottom: 20px; /* Espacio inferior */
+    color: #ffeb3b; /* Cambiar el color del texto a amarillo brillante */
+    background-color: #2a2a2a; /* Fondo gris oscuro para que combine con el resto */
+    padding: 10px; /* Espaciado interno para el párrafo */
+    border-radius: 4px; /* Bordes redondeados */
+    display: inline-block; /* Hacer que el fondo solo abarque el texto */
+    transition: background-color 0.3s ease; /* Efecto de transición para el fondo */
+}
+
+p:hover {
+    background-color: #3a3a3a; /* Cambiar el fondo al pasar el cursor */
+}

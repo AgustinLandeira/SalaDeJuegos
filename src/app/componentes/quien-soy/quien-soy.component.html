@@ -1,0 +1,62 @@
+<body>
+    
+    <div id="about-me">
+        <h1>¿Quién Soy?</h1>
+        <img [src]="imagen" alt="Tu Nombre" style="width: 150px; border-radius: 75px;">
+        <h2>Nombre: {{nombre}}</h2>
+        <h2>Dni: {{dni}}</h2>
+        <h2>Legajo: {{legajo}}</h2>
+        <p><strong>Descripción:</strong> {{descripcion}}</p>
+        
+    
+        <div class="seccion">
+            <h1>Lenguajes de Programación</h1>
+            <ul class="lista">
+              <li *ngFor="let lenguaje of lenguajes" class="lista-item">
+                <img [src]="lenguaje.imagen" alt="{{ lenguaje.nombre }}" class="lenguaje-imagen">
+                <span>{{ lenguaje.nombre }}</span>
+              </li>
+            </ul>
+          </div>
+
+        <div class="seccion">
+            <h1>frameworks</h1>
+            <ul class="lista">
+                <li *ngFor="let framwork of frameworks" class="lista-item">
+                    <img [src]="framwork.imagen" alt="{{framwork.frkNombre}}" class="framworks">
+                    <span>{{framwork.frkNombre}}</span>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="seccion">
+            <h1>entorno</h1>
+            <ul class="lista">
+                <li *ngFor="let ent of entorno" class="lista-item">
+                    <img [src]="ent.imagen" alt="{{ent.nombre}}" class="entorno">
+                    <span>{{ent.nombre}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="seccion">
+            <h1>entorno</h1>
+            <ul class="lista">
+                <li *ngFor="let ent of entornoTrabajo" class="lista-item">
+                    <img [src]="ent.imagen" alt="{{ent.entorno}}" class="entorno-trabajo">
+                    <span>{{ent.entorno}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <h1>Contacto</h1>
+        <p>Email: <a href="mailito:{{ contacto }}">{{ contacto }}</a></p>
+
+    </div>
+
+
+    <button>Volver</button>
+
+</body>
+

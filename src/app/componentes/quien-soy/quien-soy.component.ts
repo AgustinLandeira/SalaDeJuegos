@@ -1,10 +1,12 @@
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule, NgModel } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-quien-soy',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor,FormsModule,CommonModule,RouterModule ],
   templateUrl: './quien-soy.component.html',
   styleUrl: './quien-soy.component.css'
 })
@@ -16,6 +18,8 @@ export class QuienSoyComponent {
   legajo : string = "114519"
   descripcion : string = "Actualmento soy estudiante en la UTN para tener el titulo de desarrollador de software en un futuro.";
   contacto: string = 'landeira2017@gmail.com';
+
+  constructor(private router:Router){}
 
   lenguajes : {nombre: string, imagen : string}[] = [
     {nombre: "Python", imagen: "https://firebasestorage.googleapis.com/v0/b/sala-de-juegos-1c9ea.appspot.com/o/Python.svg.png?alt=media&token=a1b208c9-f4cf-4583-b8f9-45d750c0fef4"},
@@ -41,4 +45,8 @@ export class QuienSoyComponent {
     {nombre: "NodeJs",imagen: "https://firebasestorage.googleapis.com/v0/b/sala-de-juegos-1c9ea.appspot.com/o/Node.js.svg.png?alt=media&token=fe407132-01aa-4d8f-9171-4eedb35fec3c"}
   ]
   
+  
+  Volver(){
+    this.router.navigate(["home"]);
+  }
 }

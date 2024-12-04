@@ -1,3 +1,11 @@
+body {
+    background-color: #000000; /* Fondo negro */
+    color: #ffffff; /* Color de texto blanco */
+    margin: 0; /* Eliminar margen por defecto */
+    font-family: Arial, sans-serif; /* Fuente general */
+    padding: 0;
+}
+
 #about-me {
     background-color: #1b1b1b; /* Fondo negro que combina con el header */
     color: #fff; /* Color de texto blanco para mayor contraste */
@@ -5,7 +13,7 @@
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más intensa para dar profundidad */
     max-width: 800px; /* Ancho máximo para una mejor presentación */
-    margin: 20px auto; /* Centrar el componente en la página */
+    margin: 0 auto; /* Centrar el componente en la página */
 }
 
 #about-me h1 {
@@ -95,7 +103,7 @@ button {
 }
 
 button:hover {
-    background-color: #218838; /* Color de fondo más oscuro al pasar el cursor */
+    background-color: black; /* Color de fondo más oscuro al pasar el cursor */
     transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el cursor */
 }
 
@@ -104,14 +112,6 @@ button:focus {
     box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Agregar sombra alrededor del botón cuando está enfocado */
 }
 
-
-body {
-    background-color: #000000; /* Fondo negro */
-    color: #ffffff; /* Color de texto blanco */
-    margin: 0; /* Eliminar margen por defecto */
-    font-family: Arial, sans-serif; /* Fuente general */
-    padding: 0;
-}
 
 p,h2 {
     font-size: 16px; /* Tamaño de fuente para la descripción */
@@ -127,4 +127,8 @@ p,h2 {
 
 p:hover {
     background-color: #3a3a3a; /* Cambiar el fondo al pasar el cursor */
+}
+h1, h2, p {
+    margin: 0; /* Eliminar márgenes */
+    /* También puedes establecer márgenes específicos si lo deseas */
 }

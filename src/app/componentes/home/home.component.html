@@ -1,6 +1,6 @@
 
 <body>
-    
+
     <header>
         <nav>
             <h1 class="title">SALA DE JUEGOS</h1>
@@ -11,9 +11,35 @@
                 <li>
                     <button class="logout" (click)="Logout()">Cerrar Sesion</button>
                 </li>
+                
             </ul>
         </nav>
     </header>
 
+    <main class="game-options">
+
+        <section class="option" id="preguntados">
+            <h2>Preguntados</h2>
+            <button (click)="JugarPreguntados()">jugar</button>
+
+        </section>
+        
+        <section class="option" id="mayor-menor">
+
+            <h2>Juego 2</h2>
+            <button>jugar</button>
+
+        </section>
+        
+
+        <section class="option" id="ahorcado">
+            <h2>Juego 3</h2>
+            <button>jugar</button>
+        
+        </section>
+
+    </main>
 
 </body>
+
+

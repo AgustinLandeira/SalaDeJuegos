@@ -5,12 +5,13 @@ import { Router } from '@angular/router';
 import { Firestore, provideFirestore } from '@angular/fire/firestore';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import Swal from 'sweetalert2';
+import { HomeComponent } from '../home/home.component';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule,RouterLink,RouterLinkActive ],
+  imports: [FormsModule,RouterLink,RouterLinkActive,HomeComponent ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -19,6 +20,7 @@ export class LoginComponent {
   public clave : string ="";
   public logeado! : boolean;
   public error : string = "";
+  
 
   constructor(private router:Router,firestore :Firestore,private auth: Auth){}
 

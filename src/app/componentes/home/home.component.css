@@ -1,6 +1,10 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #000; /* Fondo negro para todo */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -8,29 +12,22 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #1b1b1b; /* Fondo oscuro para que el texto y los efectos brillantes resalten */
+    background-color: #1b1b1b;
     color: #fff;
 }
 
 .title {
     margin: 0;
-    font-size: 48px; /* Aumenté el tamaño para resaltar más el título */
+    font-size: 48px;
     text-align: center;
     flex: 1;
     margin-right: 1000px;
-    
-    /* Sombra de texto */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px #ff4d4d, 0 0 25px #ff4d4d;
-
-    /* Animación de entrada */
     animation: fadeIn 2s ease-in-out;
-
-    /* Fuente personalizada */
     font-family: 'Arial Black', sans-serif;
     color: #ffeb3b;
 }
 
-/* Definición de la animación */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -57,11 +54,10 @@ ul {
     padding: 0;
 }
 
-/* Estilos para los botones */
 button {
     padding: 8px 12px;
     color: yellow;
-    background-color: #ff4d4d; /* Fondo rojizo que combina con el título */
+    background-color: #ff4d4d;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -71,6 +67,75 @@ button {
 }
 
 button:hover {
-    background-color: #e63946; /* Un tono ligeramente más oscuro al pasar el cursor */
+    background-color: #e63946;
+}
+
+/* Estilos para las secciones de opciones */
+.game-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.option {
+    background-color: #1b1b1b;
+    border: 2px solid #ff4d4d;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.option h2 {
+    color: #ffeb3b;
+    /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);*/
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px #ff4d4d, 0 0 25px #ff4d4d;
+    
+}
+
+.option p {
+    color: yellow;
+}
+
+.option button {
+    margin-top: 250px;
+    text-align: center;
+    
+}
+
+.option:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 77, 77, 0.8);
+}
+
+main {
+    flex: 1; /* Para ocupar todo el espacio disponible */
+    background-color: #000;
+}
+
+#preguntados{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/sala-de-juegos-1c9ea.appspot.com/o/preguntados.png?alt=media&token=eb0756c1-47e1-4ff4-9eef-464e69bcfb50");
+    background-size: cover; /* Ajusta la imagen al tamaño del div manteniendo las proporciones */
+    background-repeat: no-repeat; /* Evita que la imagen se duplique */
+    background-position: center; /* Centra la imagen en el div */
+    
+    
+}
+
+#mayor-menor{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/sala-de-juegos-1c9ea.appspot.com/o/mayor_menor.jpg?alt=media&token=228003e5-abfa-4804-9e1e-f3dbace16ac8");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#ahorcado{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/sala-de-juegos-1c9ea.appspot.com/o/ahorcado.jpg?alt=media&token=7089b8eb-5f47-41a6-b481-e37a2d2fe33b");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 

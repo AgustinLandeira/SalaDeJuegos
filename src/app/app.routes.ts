@@ -13,5 +13,9 @@ export const routes: Routes = [
     {path:"register",component:RegisterComponent},
     {path:"home",component:HomeComponent},
     {path:"quien-soy",component:QuienSoyComponent},
+    { //para acceder a un modulo
+        path:"juegos", // el import le pasa la ruta relativa y devuelve una promesa y el .then muestra lo que devuelve
+        loadChildren: () => import("./modulos/juegos/juegos.module").then(m => m.JuegosModule)
+    },
     {path:"**", component:PageNotFoundComponent},
 ];

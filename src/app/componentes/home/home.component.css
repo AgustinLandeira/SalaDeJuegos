@@ -64,6 +64,7 @@ button {
     font-weight: bold;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
     transition: background-color 0.3s ease;
+    animation: fadeIn 2s backwards;
 }
 
 button:hover {

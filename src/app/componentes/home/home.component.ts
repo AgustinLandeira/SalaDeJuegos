@@ -28,4 +28,8 @@ export class HomeComponent {
     this.router.navigate(["juegos/preguntados"]);
   }
 
+  JugarMayorMenor(){
+    this.router.navigate(["juegos/mayor-menorr"]);
+  }
+
 }

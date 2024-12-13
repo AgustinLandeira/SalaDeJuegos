@@ -1,0 +1,148 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Asegura que cubra toda la pantalla */
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco por defecto */
+    overflow-x: hidden; /* Evita el scroll horizontal no deseado */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+nav{
+    display: flex;
+}
+
+header {
+    display: flex;
+    background-color: #1b1b1b; /* Fondo del header */
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    padding: 11px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+}
+
+.title {
+    margin: 5px;
+    font-size: 40px;
+    text-align: center;
+    flex: 1;
+    margin-right: 750px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px green, 0 0 25px green;
+    animation: fadeIn 2s backwards;
+    font-family: 'Arial Black', sans-serif;
+    color: red;
+}
+
+/* Botones */
+button {
+    padding: 5px 10px;
+    color: red;
+    background-color: green;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    animation: fadeIn 2s backwards;
+    font-size: 15px;
+    display: flex;
+    
+    
+}
+
+button:hover {
+    color: black;
+    background-color: #1db954; /* Verde más claro */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo general */
+ul {
+    list-style: none; /* Elimina puntos o números de lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Hace que los elementos estén en fila */
+    justify-content: center; /* Centra horizontalmente las opciones */
+    gap: 20px; /* Espaciado entre opciones */
+    margin-left: 10px;
+}
+
+ul li {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #1b1b1b; /* Fondo oscuro */
+    border: 1px solid green;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+ul li:hover {
+    background-color: green; /* Cambia a verde al pasar el mouse */
+    color: black;
+}
+
+/* Sección de personaje */
+.carta {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.carta-imagen {
+    max-width: 300px;
+    border: 5px solid green;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.carta-imagen:hover {
+    transform: scale(1.1);
+}
+
+.opciones li{
+
+    width: 150px;
+    color: red;
+}
+
+footer.negro {
+    background-color: #1b1b1b; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centrado de texto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+}
+
+footer.negro h5 {
+    font-size: 18.5px;
+    margin: 5px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Sombra para el texto */
+    color: #ffeb3b; /* Color amarillo para resaltar */
+    animation: fadeIn 2s ease-out;
+}
+
+footer.negro h5:hover {
+    color: #ff4d4d; /* Cambiar color al pasar el ratón */
+    text-shadow: 1px 1px 5px rgba(255, 0, 0, 0.8); /* Resaltar la sombra en hover */
+}

@@ -183,3 +183,12 @@ h2{
     transform: translateY(0);
     }
   }
+
+.opciones li{
+
+    color: red;
+}
+
+h2{
+    color: red;
+}

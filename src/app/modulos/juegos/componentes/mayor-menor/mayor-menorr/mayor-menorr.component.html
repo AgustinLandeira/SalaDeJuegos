@@ -1,1 +1,36 @@
-<p>mayor-menorr works!</p>
+<body>
+    <header>
+        <nav>
+            <h2 class="title">Mayor o Menor</h2>
+            <ul>
+                <li>
+                    <button (click)="volver()">volver al menu principal</button>
+                </li>
+
+                <li>
+                    <button>Reiniciar juego</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="carta">
+
+        <h2>Adivina la siguiente carta</h2>
+        <img src="{{url}}" class="carta-imagen">
+        
+    </div>
+
+    <div>
+        <ul class="opciones">
+            <li >Mayor</li>
+            <li>Menor</li>
+        </ul>
+    </div>
+
+    <footer class="negro">
+        <h5>Aciertos: {{aciertos}}</h5>
+        <h5>Errados: {{errados}} </h5>
+        
+    </footer>
+</body>

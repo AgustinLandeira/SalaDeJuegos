@@ -120,6 +120,7 @@ export class PreguntadosComponent implements OnInit,OnDestroy {
     }
 
     this.personajeActual = this.siguientePersonaje
+    console.log(this.personajeActual);
     this.personajesUsados.push(this.personajeActual);
 
     this.listaOpciones = this.elegirOpciones(4);

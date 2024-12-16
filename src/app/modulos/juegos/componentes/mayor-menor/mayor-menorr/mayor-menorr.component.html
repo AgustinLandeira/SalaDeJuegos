@@ -8,29 +8,34 @@
                 </li>
 
                 <li>
-                    <button>Reiniciar juego</button>
+                    <button (click)="reiniciarJuego()">Reiniciar juego</button>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <div class="carta">
+    <div class="carta" *ngIf="juegoTerminado == false">
 
         <h2>Adivina la siguiente carta</h2>
-        <img src="{{url}}" class="carta-imagen">
+        <img src="{{cartaActual.url}}" class="carta-imagen">
         
     </div>
 
-    <div>
+    <div *ngIf="juegoTerminado == false">
         <ul class="opciones">
-            <li >Mayor</li>
-            <li>Menor</li>
+            <li (click)="comparar('mayor')">Mayor</li>
+            <li (click)="comparar('menor')">Menor</li>
         </ul>
     </div>
 
-    <footer class="negro">
+    <footer class="negro" *ngIf="juegoTerminado == false">
         <h5>Aciertos: {{aciertos}}</h5>
         <h5>Errados: {{errados}} </h5>
         
     </footer>
+
+    <div *ngIf="juegoTerminado" class="resultado-juego">
+        <h1>{{resultado}}</h1>
+
+    </div>
 </body>

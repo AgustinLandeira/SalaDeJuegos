@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PreguntadosComponent } from './componentes/preguntados/preguntados.component';
 import { MayorMenorrComponent } from './componentes/mayor-menor/mayor-menorr/mayor-menorr.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {

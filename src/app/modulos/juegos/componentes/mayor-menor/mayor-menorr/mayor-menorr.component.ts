@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , NgModule } from '@angular/core';
 import {Router} from '@angular/router';
 import { range } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-mayor-menorr',
   templateUrl: './mayor-menorr.component.html',
   styleUrl: './mayor-menorr.component.css'
 })
+
 export class MayorMenorrComponent implements OnInit {
 
   cartas : any[] = [];
   cartaActual : any = "";
+  siguienteCarta : any = "";
   aciertos : number = 0;
   errados : number = 0;
-  url: string = "https://firebasestorage.googleapis.com/v0/b/sala-de-juegos-1c9ea.appspot.com/o/6-espada.jpg?alt=media&token=964f8e4e-6d29-4bad-92f1-9e8341fa19d6";
   listaCartas: string[] = [
     "https://firebasestorage.googleapis.com/v0/b/sala-de-juegos-1c9ea.appspot.com/o/uno-espada.jpg?alt=media&token=ebae934e-ad24-4a27-97d4-59fa62d14f27",
     "https://firebasestorage.googleapis.com/v0/b/sala-de-juegos-1c9ea.appspot.com/o/2-espada.jpg?alt=media&token=d1224873-2cd2-4997-b58a-7249f2edc20d",
@@ -29,15 +31,28 @@ export class MayorMenorrComponent implements OnInit {
     "https://firebasestorage.googleapis.com/v0/b/sala-de-juegos-1c9ea.appspot.com/o/12-espada.jpg?alt=media&token=0b43b017-bf91-46a8-b5b6-4e6ffc817253",
 
   ];
+  listaMezclada : string[] = [];
 
   listaCartaValor: any[] = [];
+  vueltas :number = 0;
+  juegoTerminado : boolean = false;
+  resultado : string = "";
 
   public constructor(public router: Router) {
 
   }
 
   public ngOnInit(): void {
-      this.listaCartaValor = this.generarMazo(this.listaCartas);
+      this.iniciarJuego();
+  }
+
+  public iniciarJuego():void{
+
+    this.listaCartaValor = this.generarMazo(this.listaCartas);
+    this.listaMezclada = this.mezclar(this.listaCartaValor);
+    this.cartaActual = this.elegirCarta(this.listaMezclada);
+    this.siguienteCarta = this.elegirCarta(this.listaMezclada);
+
   }
 
   public volver(){
@@ -54,6 +69,8 @@ export class MayorMenorrComponent implements OnInit {
       [lista_cartas[i], lista_cartas[j]] = [lista_cartas[j], lista_cartas[i]]; // Intercambia elementos
     }
 
+    return lista_cartas;
+
   }
 
   public generarMazo(lista_cartas: string[]){
@@ -69,6 +86,96 @@ export class MayorMenorrComponent implements OnInit {
     }
     console.log(lista);
     return lista;
+  }
+
+  public elegirCarta(lista: string[]){
+
+    
+    if(this.vueltas <= 5){
+
+      if(this.cartaActual != ""){
+        lista.filter(item => item !== this.cartaActual); // saco la carta ya elegida asi no se repite en la siguiente vuelta
+      }
+  
+      const inidiceAleatorio = Math.floor(Math.random() * lista.length);
+      let cartaElegida = lista[inidiceAleatorio];
+      this.vueltas +=1;
+  
+      lista.push(cartaElegida);//la agrego devuelta la carta que elimine para que toque en otra ronda
+  
+      return cartaElegida;
+
+    }else{
+      return null;
+    }
+    
+    
+
+  }
+
+  public comparar(opcion : string):void{
+
+    console.log(opcion);
+    console.log(this.siguienteCarta.valor);
+
+    if(this.vueltas <= 5){
+
+      if(this.siguienteCarta.valor < this.cartaActual.valor){
+
+        if(opcion == "menor"){
+          console.log("estas en lo correcto, es menor");
+          this.aciertos += 1;
+        }else{
+          this.errados += 1;
+          console.log("estas en lo incorrecto, es menor");
+        }
+      }
+  
+      if(this.siguienteCarta.valor > this.cartaActual.valor){
+  
+        if(opcion == "mayor"){
+          console.log("estas en lo correcto, es mayor");
+          this.aciertos += 1;
+        }else{
+          this.errados += 1;
+          console.log("estas en lo incorrecto, es mayor");
+        }
+      }
+  
+      this.cartaActual = this.siguienteCarta;
+      this.siguienteCarta = this.elegirCarta(this.listaMezclada);
+
+    }else{
+
+      this.terminarJuego();
+
+    }
+    
+  }
+
+  public terminarJuego(){
+
+    this.juegoTerminado = true;
+
+    if(this.aciertos > this.errados){
+
+      this.resultado = "Ganaste!!!!!!";
+    }else{
+      this.resultado = "Perdiste........";
+    }
+
+
+  }
+
+  public reiniciarJuego():void{
+
+    this.resultado = "";
+    this.juegoTerminado = false;
+    this.aciertos = 0;
+    this.errados = 0;
+    this.vueltas = 0;
+
+    this.ngOnInit();
   }
 
 }

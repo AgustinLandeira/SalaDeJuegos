@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PreguntadosComponent } from './componentes/preguntados/preguntados.component';
 import { MayorMenorrComponent } from './componentes/mayor-menor/mayor-menorr/mayor-menorr.component';
 import { CommonModule } from '@angular/common';
+import { AhorcadoComponent } from './componentes/ahorcado/ahorcado/ahorcado.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
     path: "mayor-menorr",
     component: MayorMenorrComponent
 
+  },
+  {
+    path:"ahorcado",
+    component: AhorcadoComponent
   }
   
 ];

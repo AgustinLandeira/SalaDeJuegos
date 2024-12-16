@@ -25,12 +25,18 @@ export class HomeComponent {
     this.router.navigate(["login"]);
   }
 
-  JugarPreguntados(){
+  jugarPreguntados(){
     this.router.navigate(["juegos/preguntados"]);
   }
 
-  JugarMayorMenor(){
+  jugarMayorMenor(){
     this.router.navigate(["juegos/mayor-menorr"]);
+  }
+
+  jugarAhorcado():void {
+
+    this.router.navigate(["juegos/ahorcado"]);
+
   }
 
 }

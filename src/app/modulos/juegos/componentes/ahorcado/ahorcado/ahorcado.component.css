@@ -33,7 +33,7 @@ header {
     font-size: 40px;
     text-align: center;
     flex: 1;
-    margin-right: 750px;
+    margin-right: 830px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px green, 0 0 25px green;
     animation: fadeIn 2s backwards;
     font-family: 'Arial Black', sans-serif;
@@ -119,3 +119,99 @@ ul li:hover {
 h2{
     color: red;
 }
+
+.letras {
+    display: flex; /* Alinea los botones en fila */
+    justify-content: center; /* Centra los botones horizontalmente */
+    flex-wrap: wrap; /* Permite que se ajusten si no caben en una fila */
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 20px;
+}
+
+.letras button {
+    padding: 12px;
+    font-size: 15px;
+    border: 2px solid green;
+    border-radius: 5px;
+    background-color: black;
+    color: red;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.letras button:hover {
+    background-color: green;
+    color: black;
+}
+
+.ahorcado #palabra {
+    font-size: 20px; /* Tamaño de fuente más grande */
+    color: red; /* Texto rojo */
+    background-color: rgba(0, 128, 0, 0.8); /* Fondo verde semitransparente */
+    padding: 10px 20px; /* Espaciado interno */
+    border: 2px solid green; /* Borde verde */
+    border-radius: 10px; /* Bordes redondeados */
+    text-align: center; /* Centrado del texto */
+    margin: 20px auto; /* Separación y centrado automático */
+    width: fit-content; /* Ancho ajustado al contenido */
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.5); /* Sombra */
+    font-weight: bold; /* Negrita */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Sombra en el texto */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.ahorcado #palabra:hover {
+    background-color: green; /* Cambia a un verde sólido al pasar el mouse */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+.letras button:disabled {
+    color: white;
+    border: none;
+    background-color: #ccc; /* Color de fondo cuando está deshabilitado */
+    color: #666; /* Color del texto cuando está deshabilitado */
+    cursor: not-allowed; /* Cambiar el cursor */
+}
+
+.resultado-juego {
+    position: fixed;
+    top: calc(70px); /* Altura del header */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px); /* Tamaño de la pantalla menos el header */
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    text-align: center;
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+}
+  
+.resultado-juego h1 {
+    font-size: 48px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px green, 0 0 25px red;
+    animation: fadeIn 1.5s ease-out;
+}
+  
+  
+
+  /* Animaciones */
+@keyframes fadeIn {
+    from {
+    opacity: 0;
+    transform: translateY(-20px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+  }
+
+.ahorcado #palabras-usadas{
+    color: red;
+}
+
+

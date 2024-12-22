@@ -51,7 +51,7 @@ export class MayorMenorrComponent implements OnInit {
     this.listaCartaValor = this.generarMazo(this.listaCartas);
     this.listaMezclada = this.mezclar(this.listaCartaValor);
     this.cartaActual = this.elegirCarta(this.listaMezclada);
-    this.siguienteCarta = this.elegirCarta(this.listaMezclada);
+    this.siguienteCarta = this.elegirSiguienteCarta(this.listaMezclada);
 
   }
 
@@ -91,17 +91,11 @@ export class MayorMenorrComponent implements OnInit {
   public elegirCarta(lista: string[]){
 
     
-    if(this.vueltas <= 5){
-
-      if(this.cartaActual != ""){
-        lista.filter(item => item !== this.cartaActual); // saco la carta ya elegida asi no se repite en la siguiente vuelta
-      }
+    if(this.vueltas < 10){
   
       const inidiceAleatorio = Math.floor(Math.random() * lista.length);
       let cartaElegida = lista[inidiceAleatorio];
-      this.vueltas +=1;
-  
-      lista.push(cartaElegida);//la agrego devuelta la carta que elimine para que toque en otra ronda
+      
   
       return cartaElegida;
 
@@ -113,12 +107,38 @@ export class MayorMenorrComponent implements OnInit {
 
   }
 
+  public elegirSiguienteCarta(lista: string[]){
+
+    if(this.vueltas < 10){
+
+      if(this.cartaActual != ""){
+        lista.filter(item => item !== this.cartaActual); // saco la carta ya elegida asi no se repite en la siguiente vuelta
+      }
+  
+      const inidiceAleatorio = Math.floor(Math.random() * lista.length);
+      let cartaElegida = lista[inidiceAleatorio];
+
+      this.vueltas += 1;
+
+      lista.push(cartaElegida);//la agrego devuelta la carta que elimine para que toque en otra ronda
+  
+      return cartaElegida;
+
+
+    }else{
+      return null;
+    }
+
+  }
+
   public comparar(opcion : string):void{
 
-    console.log(opcion);
-    console.log(this.siguienteCarta.valor);
+   
 
-    if(this.vueltas <= 5){
+    if(this.vueltas < 10){
+
+      console.log(opcion);
+      console.log(this.siguienteCarta.valor);
 
       if(this.siguienteCarta.valor < this.cartaActual.valor){
 
@@ -143,7 +163,7 @@ export class MayorMenorrComponent implements OnInit {
       }
   
       this.cartaActual = this.siguienteCarta;
-      this.siguienteCarta = this.elegirCarta(this.listaMezclada);
+      this.siguienteCarta = this.elegirSiguienteCarta(this.listaMezclada);
 
     }else{
 

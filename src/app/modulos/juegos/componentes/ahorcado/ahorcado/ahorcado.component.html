@@ -15,15 +15,28 @@
         </nav>
     </header>
 
-    <div class="ahorcado">
+    <div class="ahorcado" *ngIf="juegoTerminado == false">
 
         <h2>Adivina la palabra</h2>
-        <img src="{{url}}" class="ahorcado-imagen">
+        <img src="{{imagenActual}}" class="ahorcado-imagen">
+        <p id="palabra">{{palabra}}</p>
+        <p id="palabras-usadas">Palabras usadas: {{this.letrasUsadas.join(" , ")}} </p>
+        <div class="letras">
+            <button (click)="compararletra(letra)" 
+             *ngFor="let letra of letras"
+             [disabled]="this.letrasUsadas.includes(letra)">{{letra}}</button>
+        </div>
 
     </div>
 
-    <div class="palabra">
+    <div *ngIf="juegoTerminado" class="resultado-juego">
+        <h1>{{resultado}}</h1>
 
     </div>
+
+    
+            
+    
+    
 
 </body>

@@ -4,16 +4,31 @@
         <nav>
             <h2 class="title">Ahorcado</h2>
             <ul>
+
                 <li>
-                    <button (click)="volverHome()">volver al menu principal</button>
+                    <button (click)="verDescripcion()">Descripcion</button>
                 </li>
 
                 <li>
                     <button (click)="reiniciarJuego()">Reiniciar juego</button>
                 </li>
+
+                <li>
+                    <button (click)="volverHome()">volver al menu principal</button>
+                </li>
+
+                
             </ul>
         </nav>
     </header>
+
+    <div *ngIf="this.mostrarDescripcion != false" class="descripcion-cuadro">
+        <h2>Descripcion</h2>
+        <p>En este juego del ahorcado, debes adivinar la palabra oculta antes de que se complete el dibujo del ahorcado. Tendrás varias letras para 
+            elegir y deberás seleccionar cuidadosamente, ya que cada error acerca más al ahorcado a su destino. ¡Demuestra tus habilidades y evita que el personaje sea colgado completando la palabra correctamente!</p>
+        <button (click)="sacarDescripcion()">Volver</button>
+
+    </div>
 
     <div class="ahorcado" *ngIf="juegoTerminado == false">
 

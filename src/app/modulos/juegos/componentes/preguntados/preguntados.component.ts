@@ -25,6 +25,7 @@ export class PreguntadosComponent implements OnInit,OnDestroy {
   preguntasIncorrectas : number = 0; 
   terminado: boolean = false;
   resultado:string = "";
+  mostrarDescripcion :boolean = false;
   ngOnInit(): void { //es un hook en el cual angular lo llama al momento de crear el componente
       
     this.sub = this.preguntadosApi.getPersonajes()
@@ -160,6 +161,14 @@ export class PreguntadosComponent implements OnInit,OnDestroy {
     }
     
 
+  }
+
+  public verDescripcion(){
+    this.mostrarDescripcion = true;
+  }
+
+  public sacarDescripcion(){
+    this.mostrarDescripcion = false;
   }
 
 }

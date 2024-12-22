@@ -37,6 +37,7 @@ export class MayorMenorrComponent implements OnInit {
   vueltas :number = 0;
   juegoTerminado : boolean = false;
   resultado : string = "";
+  mostrarDescripcion : boolean = false;
 
   public constructor(public router: Router) {
 
@@ -90,7 +91,6 @@ export class MayorMenorrComponent implements OnInit {
 
   public elegirCarta(lista: string[]){
 
-    
     if(this.vueltas < 10){
   
       const inidiceAleatorio = Math.floor(Math.random() * lista.length);
@@ -118,9 +118,7 @@ export class MayorMenorrComponent implements OnInit {
       const inidiceAleatorio = Math.floor(Math.random() * lista.length);
       let cartaElegida = lista[inidiceAleatorio];
 
-      this.vueltas += 1;
-
-      lista.push(cartaElegida);//la agrego devuelta la carta que elimine para que toque en otra ronda
+      lista.push(this.cartaActual);//la agrego devuelta la carta que elimine para que toque en otra ronda
   
       return cartaElegida;
 
@@ -134,7 +132,6 @@ export class MayorMenorrComponent implements OnInit {
   public comparar(opcion : string):void{
 
    
-
     if(this.vueltas < 10){
 
       console.log(opcion);
@@ -161,9 +158,17 @@ export class MayorMenorrComponent implements OnInit {
           console.log("estas en lo incorrecto, es mayor");
         }
       }
-  
-      this.cartaActual = this.siguienteCarta;
-      this.siguienteCarta = this.elegirSiguienteCarta(this.listaMezclada);
+      
+      this.vueltas += 1;
+
+      if(this.vueltas < 10){
+        console.log("vuelta numero: "+ this.vueltas);
+        this.cartaActual = this.siguienteCarta;
+        this.siguienteCarta = this.elegirSiguienteCarta(this.listaMezclada);
+      }else{
+        this.terminarJuego();
+      }
+      
 
     }else{
 
@@ -171,6 +176,18 @@ export class MayorMenorrComponent implements OnInit {
 
     }
     
+  }
+
+  public verDescripcion(){
+
+    this.mostrarDescripcion = true;
+
+  }
+
+  public sacarDescripcion(){
+
+    this.mostrarDescripcion = false;
+
   }
 
   public terminarJuego(){

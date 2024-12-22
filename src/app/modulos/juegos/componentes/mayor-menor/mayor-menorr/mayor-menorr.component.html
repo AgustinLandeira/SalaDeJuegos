@@ -4,15 +4,30 @@
             <h2 class="title">Mayor o Menor</h2>
             <ul>
                 <li>
-                    <button (click)="volver()">volver al menu principal</button>
+                    <button (click)="verDescripcion()">Descripcion</button>
                 </li>
 
                 <li>
                     <button (click)="reiniciarJuego()">Reiniciar juego</button>
                 </li>
+
+                <li>
+                    <button (click)="volver()">volver al menu principal</button>
+                </li>
+
+                
+
+                
             </ul>
         </nav>
     </header>
+
+    <div *ngIf="mostrarDescripcion != false" class="descripcion-cuadro">
+
+        <h2>Descripción del Juego</h2>
+        <p>El objetivo del juego es adivinar si la siguiente carta será mayor o menor que la actual y tendras 10 opurtunidades. Acumula puntos por cada respuesta correcta. ¡Buena suerte!</p>
+        <button (click)="sacarDescripcion()">Volver</button>
+    </div>
 
     <div class="carta" *ngIf="juegoTerminado == false">
 
@@ -36,6 +51,8 @@
 
     <div *ngIf="juegoTerminado" class="resultado-juego">
         <h1>{{resultado}}</h1>
+        <h5>Acertaste: {{aciertos}} veces</h5>
+        <h5>Erraste: {{errados}} veces </h5>
 
     </div>
 </body>

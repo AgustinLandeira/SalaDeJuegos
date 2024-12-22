@@ -33,6 +33,7 @@ export class AhorcadoComponent implements OnInit {
   errores : number = 0;
   juegoTerminado: boolean = false;
   resultado : string = "";
+  mostrarDescripcion :boolean = false;
 
 
   public constructor(public route: Router){
@@ -88,7 +89,6 @@ export class AhorcadoComponent implements OnInit {
 
       }
 
-      
       this.palabra = this.palabra.replace(/\s/g,""); // el /s nos saca las tabulaciones,saltos de linea y espacios y /g que sea todas las ocurrencias
       let arrayPalabra = this.palabra.split("");
       for(let i = 0; i < indices.length; i++){
@@ -113,7 +113,7 @@ export class AhorcadoComponent implements OnInit {
 
         this.imagenActual = this.imagenes[this.errores];
 
-        if(this.errores == 6){
+        if(this.errores == 5){
 
           this.terminarJuego();
 
@@ -146,11 +146,19 @@ export class AhorcadoComponent implements OnInit {
       this.resultado = "Perdiste..... la palabra era: " + this.palabraElegida;
 
     }else{
-      this.resultado = "Ganaste !!!, la palabra era: " + this.palabraElegida;
+      this.resultado = "Ganaste !!!. La palabra era: " + this.palabraElegida;
     }
 
     this.juegoTerminado = true;
 
+  }
+
+  public verDescripcion(){
+    this.mostrarDescripcion = true;
+  }
+
+  public sacarDescripcion(){
+    this.mostrarDescripcion = false;
   }
 
 }

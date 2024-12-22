@@ -33,7 +33,7 @@ header {
     font-size: 40px;
     text-align: center;
     flex: 1;
-    margin-right: 750px;
+    margin-right: 550px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px green, 0 0 25px green;
     animation: fadeIn 2s backwards;
     font-family: 'Arial Black', sans-serif;
@@ -168,8 +168,54 @@ h2{
     z-index: 1000; /* Asegura que esté encima de otros elementos */
 }
   
-.resultado-juego h1 {
+.resultado-juego h1 h5 {
     font-size: 48px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px green, 0 0 25px red;
     animation: fadeIn 1.5s ease-out;
 }
+
+@keyframes fadeIn {
+    from {
+    opacity: 0;
+    transform: translateY(-20px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+.descripcion-cuadro {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.descripcion-cuadro h2 {
+    margin-bottom: 15px;
+    color: #1db954;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.descripcion-cuadro button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #1db954;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.descripcion-cuadro button:hover {
+    background-color: #1ed760;
+}
+
+

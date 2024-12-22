@@ -3,11 +3,22 @@
         <nav>
             <h1 class="title">Preguntados</h1>
             <ul>
-                <li><button (click)="volverHome()">Volver al menú principal</button></li>
+                <li><button (click)="verDescripcion()">Descripcion</button></li>
                 <li><button (click)="reiniciarJuego()">Reiniciar juego </button></li>
+                <li><button (click)="volverHome()">Volver al menú principal</button></li>
+                
+                
             </ul>
         </nav>
     </header>
+
+    <div *ngIf="this.mostrarDescripcion != false" class="descripcion-cuadro">
+        <h2>Descripcion</h2>
+        <p>En este juego, debes adivinar quién es el personaje que aparece en la imagen. Cada ronda mostrará una foto de un personaje de la serie, y 
+            tendrás varias opciones para elegir su nombre.Por cada respuesta correcta, ganarás puntos y tendras 21 opurtunidades.¡Pon a prueba tu conocimiento sobre tus personajes favoritos y diviértete adivinando!</p>
+        <button (click)="sacarDescripcion()">Volver</button>
+
+    </div>
 
     <div class="personaje" *ngIf="personajeActual != null">
         <h2>¿Quién es este personaje?</h2>

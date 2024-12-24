@@ -1,0 +1,110 @@
+:host {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
+
+.navbar {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-button {
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #1b1b1b;
+    border: 1px solid green;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-button:hover {
+    color: black;
+    background-color: #1db954;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 10px; /* Reducido para hacerlo más compacto */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    max-width: 550px; /* Reducido el ancho máximo del formulario */
+    margin: 15px auto; /* Menos espacio alrededor */
+    color: #333;
+    text-align: left;
+}
+
+form textarea {
+    width: calc(100% - 20px);
+    padding: 3px; /* Menos padding */
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 13px; /* Tamaño del texto más pequeño */
+    resize: none;
+    transition: border-color 0.3s ease;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 3px; /* Reducido para menos espacio */
+    display: block;
+    color: #333;
+}
+
+form input[type="text"],
+form input[type="radio"] {
+    padding: 3px;
+    margin-bottom: 6px; /* Menos espacio entre inputs */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 13px; /* Tamaño de texto más pequeño */
+    color: black;
+}
+
+form button[type="submit"] {
+    padding: 8px; /* Botón más compacto */
+    margin-top: 12px; /* Menos espacio sobre el botón */
+    font-size: 13px;
+    width: 530px;
+}
+
+.error-message {
+    color: red; /* Color rojo para errores */
+    font-size: 0.9rem; 
+    margin-top: 1px;
+    margin-bottom: 6px;
+}
+
+.enviar:hover{
+    background-color: #1db954;
+}
+
+.enviar:disabled{
+    cursor: not-allowed;
+}
+
+

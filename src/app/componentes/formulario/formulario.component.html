@@ -1,0 +1,75 @@
+<body>
+
+    <nav class="navbar">
+        <button type="button" (click)="volver()" class="navbar-button">Volver al home</button>
+      </nav>
+
+      <form [formGroup]="form">
+        
+        <div>
+            <label for="nombreCompleto"> Nombre completo: </label>
+            <input type="text" id="nombreCompleto" formControlName="nombreCompleto" required class="nombre">
+
+            <div *ngIf="form.get('nombreCompleto')?.invalid && (form.get('nombreCompleto')?.touched ||form.get('nombreCompleto')?.dirty )">
+
+                <div class="error-message" *ngIf="form.get('nombreCompleto')?.errors?.['pattern']">Solo se permite letras</div>
+                <div class="error-message" *ngIf="form.get('nombreCompleto')?.errors?.['required']">Este campo es requerido</div>
+
+            </div>
+        </div>
+
+        <div>
+            <label for="telefono">Telefono: </label>
+            <input type="text" id="telefono" formControlName="telefono" required>
+
+            <div *ngIf="form.get('telefono')?.invalid && (form.get('telefono')?.touched || form.get('telefono')?.dirty)">
+
+                <div class="error-message" *ngIf="form.get('telefono')?.errors?.['pattern']">numero inexistente</div>
+                <div class="error-message" *ngIf="form.get('telefono')?.errors?.['required']">Este campo es requerido</div>
+                
+
+            </div>
+        </div>
+
+        <div>
+            <label for="edad">Edad: </label>
+            <input type="text" formControlName="edad" required class="edad">
+
+            <div *ngIf="form.get('edad')?.invalid && (form.get('edad')?.touched || form.get('edad')?.dirty)">
+
+                <div class="error-message" *ngIf="form.get('edad')?.errors?.['min']">Tiene que ser mayor de edad</div>
+                <div class="error-message" *ngIf="form.get('edad')?.errors?.['required']">Este campo es requerido</div>
+                <div class="error-message" *ngIf="form.get('edad')?.errors?.['pattern']">Solo se permite numeros</div>
+
+            </div>
+        </div>
+
+        <div>
+            <label for="comentarios">¿ Que opinas de esta app ?</label>
+            <textarea formControlName="comentarios" rows="4" required=""></textarea>
+
+            <div *ngIf="form.get('comentarios')?.invalid && (form.get('comentarios')?.touched || form.get('comentarios')?.dirty)">
+
+                <div class="error-message" *ngIf="form.get('comentarios')?.errors?.['required']">Este campo es requerido</div>
+            </div>
+        </div>
+
+        <div>
+            <label>¿ Recomendarias esta pagina ?</label>
+
+            <div>
+                <label>
+                    <input type="radio" formControlName="recomendar" value="Si"> Si
+                </label>
+
+                <label>
+                    <input type="radio" formControlName="recomendar" value="No">No
+                </label>
+
+                <div class="error-message" *ngIf="form.get('recomendar')?.errors?.['required']">Es obligatorio elegir una opcion</div>
+            </div>
+        </div>
+
+        <button type="submit" class="enviar" [disabled]="form.invalid" (click)="enviar()">Enviar</button>
+    </form>
+</body>

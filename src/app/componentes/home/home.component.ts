@@ -21,6 +21,10 @@ export class HomeComponent {
 
   }
 
+  public irAEncuesta(){
+    this.router.navigate(["formulario"]);
+  }
+
   Logout(){
     this.router.navigate(["login"]);
   }

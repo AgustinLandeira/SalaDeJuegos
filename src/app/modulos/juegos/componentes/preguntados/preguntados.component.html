@@ -14,18 +14,18 @@
 
     <div *ngIf="this.mostrarDescripcion != false" class="descripcion-cuadro">
         <h2>Descripcion</h2>
-        <p>En este juego, debes adivinar quién es el personaje que aparece en la imagen. Cada ronda mostrará una foto de un personaje de la serie, y 
-            tendrás varias opciones para elegir su nombre.Por cada respuesta correcta, ganarás puntos y tendras 21 opurtunidades.¡Pon a prueba tu conocimiento sobre tus personajes favoritos y diviértete adivinando!</p>
+        <p>En este juego, debes adivinar cual es el pais que aparece en la imagen. Cada ronda mostrará una foto de un pais, y 
+            tendrás varias opciones para elegir su nombre.Por cada respuesta correcta, ganarás puntos y tendras 21 opurtunidades.¡Pon a prueba tu conocimiento sobre los paises del mundo y diviértete adivinando!</p>
         <button (click)="sacarDescripcion()">Volver</button>
 
     </div>
 
-    <div class="personaje" *ngIf="personajeActual != null">
-        <h2>¿Quién es este personaje?</h2>
-        <img [src]="personajeActual.imagen" class="heroe-image">
+    <div class="personaje" *ngIf="paisActual != null">
+        <h2>¿Que pais es este?</h2>
+        <img [src]="paisActual.imagen" class="heroe-image">
     </div>
 
-    <div *ngIf="personajeActual != null">
+    <div *ngIf="paisActual != null">
         <ul class="opciones">
             <li *ngFor="let opcion of listaOpciones" (click)="compararOpcion(opcion)">
                 {{opcion}}

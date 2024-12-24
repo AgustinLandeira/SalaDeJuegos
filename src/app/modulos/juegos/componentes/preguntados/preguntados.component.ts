@@ -14,13 +14,13 @@ export class PreguntadosComponent implements OnInit,OnDestroy {
   constructor(private preguntadosApi:PreguntadosApiService,private router:Router){}
 
   sub! : Subscription
-  personajes :any[] = [];//una lista para guardar los personajes
-  personajeActual:any | null ;
-  personajeAleatorio:any;
-  personajesUsados : any[] = [];
+  paises :any[] = [];//una lista para guardar los personajes
+  paisActual:any | null ;
+  paisAleatorio:any;
+  paisesUsados : any[] = [];
   listaOpciones :any[] = [];
-  personajesRestantes!: number;
-  siguientePersonaje: any;
+  paisesRestantes!: number;
+  siguientePais: any;
   preguntasCorrectas : number = 0;
   preguntasIncorrectas : number = 0; 
   terminado: boolean = false;
@@ -28,10 +28,11 @@ export class PreguntadosComponent implements OnInit,OnDestroy {
   mostrarDescripcion :boolean = false;
   ngOnInit(): void { //es un hook en el cual angular lo llama al momento de crear el componente
       
-    this.sub = this.preguntadosApi.getPersonajes()
+    this.sub = this.preguntadosApi.getPaises()
     .subscribe(data =>{//le asignmos la suscripcion al observable para poder emitir los datos que este representando
 
-      this.personajes = data;//le asigno a mi propiedad los personajes
+      const listaAleatoria = this.mezclarPaises(data);//le asigno a mi propiedad los personajes
+      this.paises = listaAleatoria.slice(0, 21);//elegimos los primeros 15
       this.iniciarJuego();
 
 
@@ -45,25 +46,25 @@ export class PreguntadosComponent implements OnInit,OnDestroy {
 
   iniciarJuego(): void {
 
-    this.personajes = this.mezclarPersonajes(this.personajes);
-    this.personajeActual = this.elegirPersonaje(this.personajes);
-    this.personajesUsados.push(this.personajeActual);
-    this.siguientePersonaje = this.personajes.pop() || null;
+    this.paises = this.mezclarPaises(this.paises);
+    this.paisActual = this.elegirPais(this.paises);
+    this.paisesUsados.push(this.paisActual);
+    this.siguientePais = this.paises.pop() || null;
     this.listaOpciones = this.elegirOpciones(4);
-    this.personajesRestantes = this.personajes.length+1;
+    this.paisesRestantes = this.paises.length+1;
 
   }
 
-  elegirPersonaje(lista_personajes: any[]): void {
+  elegirPais(lista_personajes: any[]): void {
 
     const indiceAleatorio = Math.floor(Math.random() * lista_personajes.length);
-    this.personajeAleatorio = lista_personajes[indiceAleatorio];
+    this.paisAleatorio = lista_personajes[indiceAleatorio];
 
-    return this.personajeAleatorio
+    return this.paisAleatorio
 
   }
 
-  mezclarPersonajes(personajes: any[]){
+  mezclarPaises(personajes: any[]){
 
     for (let i = personajes.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1)); // Índice aleatorio
@@ -77,18 +78,18 @@ export class PreguntadosComponent implements OnInit,OnDestroy {
 
     let opcionesAleatorias: string[] = [];
     let listaOpcionesAleatorias: any[] = [];
-    listaOpcionesAleatorias = this.personajes.concat(this.personajesUsados);
+    listaOpcionesAleatorias = this.paises.concat(this.paisesUsados);
     const cantidadReal = Math.min(cantidadPersonajes, listaOpcionesAleatorias.length);
     
-    if(this.personajeActual != null){// cambio
+    if(this.paisActual != null){// cambio
 
       while (opcionesAleatorias.length < cantidadReal){
 
         const randomIndex = Math.floor(Math.random() * listaOpcionesAleatorias.length);
         const personaje = listaOpcionesAleatorias[randomIndex];
 
-        if(!opcionesAleatorias.includes(this.personajeActual.nombre)){
-          opcionesAleatorias.push(this.personajeActual.nombre);
+        if(!opcionesAleatorias.includes(this.paisActual.nombre)){
+          opcionesAleatorias.push(this.paisActual.nombre);
         }
           // Agrega el héroe solo si no está ya en las opciones
           if (!opcionesAleatorias.includes(personaje.nombre)) {
@@ -98,7 +99,7 @@ export class PreguntadosComponent implements OnInit,OnDestroy {
       }
 
       
-      opcionesAleatorias = this.mezclarPersonajes(opcionesAleatorias)
+      opcionesAleatorias = this.mezclarPaises(opcionesAleatorias)
   
       return opcionesAleatorias;
 
@@ -113,25 +114,27 @@ export class PreguntadosComponent implements OnInit,OnDestroy {
 
   public compararOpcion(opcion: any){
 
-    if(opcion == this.personajeActual.nombre){
+    if(opcion == this.paisActual.nombre){
       this.preguntasCorrectas += 1;
+      console.log(this.preguntasCorrectas);
 
     }else{
       this.preguntasIncorrectas += 1;
+      console.log(this.preguntasIncorrectas);
     }
 
-    this.personajeActual = this.siguientePersonaje
-    console.log(this.personajeActual);
-    this.personajesUsados.push(this.personajeActual);
+    this.paisActual = this.siguientePais
+    console.log(this.paisActual);
+    this.paisesUsados.push(this.paisActual);
 
     this.listaOpciones = this.elegirOpciones(4);
 
-    if (this.personajes.length > 0) {
-      this.siguientePersonaje = this.personajes.pop() || null;
-      this.personajesRestantes = this.personajes.length+1;
+    if (this.paises.length > 0) {
+      this.siguientePais = this.paises.pop() || null;
+      this.paisesRestantes = this.paises.length+1;
     }else {
-      this.siguientePersonaje = null; // Termina el juego
-      this.personajesRestantes = 0; // Deshabilita el botón de adivinar carta al final del juego
+      this.siguientePais = null; // Termina el juego
+      this.paisesRestantes = 0; // Deshabilita el botón de adivinar carta al final del juego
       
     }
   }

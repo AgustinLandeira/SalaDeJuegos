@@ -24,7 +24,10 @@ export class AhorcadoComponent implements OnInit {
     "programador",
     "computadora",
     "teclado",
-    "mouse"
+    "mouse",
+    "salta",
+    "computadora",
+    "botones"
   ];
   palabra : string = "";
   palabraElegida : string = "";

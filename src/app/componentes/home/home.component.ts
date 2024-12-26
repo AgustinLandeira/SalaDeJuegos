@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { QuienSoyComponent } from '../quien-soy/quien-soy.component';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';

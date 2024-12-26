@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 import { HomeComponent } from './componentes/home/home.component';
 import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 import { FormularioComponent } from './componentes/formulario/formulario.component';
+import { formGuard } from './guards/form.guard';
 
 export const routes: Routes = [
 
@@ -14,7 +15,7 @@ export const routes: Routes = [
     {path:"register",component:RegisterComponent},
     {path:"home",component:HomeComponent},
     {path:"quien-soy",component:QuienSoyComponent},
-    {path:"formulario",component:FormularioComponent},
+    {path:"formulario",component:FormularioComponent,canDeactivate:[formGuard]},
     { //para acceder a un modulo
         path:"juegos", // el import le pasa la ruta relativa y devuelve una promesa y el .then muestra lo que devuelve
         loadChildren: () => import("./modulos/juegos/juegos.module").then(m => m.JuegosModule)

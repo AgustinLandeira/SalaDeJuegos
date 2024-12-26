@@ -28,7 +28,7 @@ export class LoginComponent {
   Login(){
 
     signInWithEmailAndPassword(this.auth,this.mail,this.clave).then((result) =>{
-      
+
       this.showSuccessAlert("Acceso a juegos")
       this.router.navigate(["home"]);
     }).catch((e)=>{

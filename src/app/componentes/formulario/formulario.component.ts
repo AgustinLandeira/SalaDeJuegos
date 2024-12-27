@@ -71,6 +71,13 @@ export class FormularioComponent {
 
     this.showSuccessAlert("Puedes completarla otra vez");
     this.form.reset();//reiniciamos el formulario
+
+    this.ngOnInit();
+
+    // for(let control in this.form.value){
+
+    //   this.form.setValue(control)
+    // }
   }
 
   private showSuccessAlert(message: string) { // nos muestra el mensaje de exito

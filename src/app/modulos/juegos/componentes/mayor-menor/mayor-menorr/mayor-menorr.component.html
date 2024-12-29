@@ -14,9 +14,6 @@
                 <li>
                     <button (click)="volver()">volver al menu principal</button>
                 </li>
-
-                
-
                 
             </ul>
         </nav>
@@ -29,30 +26,38 @@
         <button (click)="sacarDescripcion()">Volver</button>
     </div>
 
-    <div class="carta" *ngIf="juegoTerminado == false">
+    <div class="seccion-juego">
 
-        <h2>Adivina la siguiente carta</h2>
-        <img src="{{cartaActual.url}}" class="carta-imagen">
-        
+
+        <div class="carta" *ngIf="juegoTerminado == false">
+
+            <h2>Adivina la siguiente carta</h2>
+            <img src="{{cartaActual.url}}" class="carta-imagen">
+            
+        </div>
+
+        <div *ngIf="juegoTerminado == false">
+            <ul class="opciones">
+                <li (click)="comparar('mayor')">Mayor</li>
+                <li (click)="comparar('menor')">Menor</li>
+            </ul>
+        </div>
+
+        <footer class="negro" *ngIf="juegoTerminado == false">
+            <h5>Aciertos: {{aciertos}}</h5>
+            <h5>Errados: {{errados}} </h5>
+            
+        </footer>
+
+        <div *ngIf="juegoTerminado" class="resultado-juego">
+            <h1>{{resultado}}</h1>
+            <h5>Acertaste: {{aciertos}} veces</h5>
+            <h5>Erraste: {{errados}} veces </h5>
+
+        </div>
+
+
     </div>
 
-    <div *ngIf="juegoTerminado == false">
-        <ul class="opciones">
-            <li (click)="comparar('mayor')">Mayor</li>
-            <li (click)="comparar('menor')">Menor</li>
-        </ul>
-    </div>
-
-    <footer class="negro" *ngIf="juegoTerminado == false">
-        <h5>Aciertos: {{aciertos}}</h5>
-        <h5>Errados: {{errados}} </h5>
-        
-    </footer>
-
-    <div *ngIf="juegoTerminado" class="resultado-juego">
-        <h1>{{resultado}}</h1>
-        <h5>Acertaste: {{aciertos}} veces</h5>
-        <h5>Erraste: {{errados}} veces </h5>
-
-    </div>
+    
 </body>

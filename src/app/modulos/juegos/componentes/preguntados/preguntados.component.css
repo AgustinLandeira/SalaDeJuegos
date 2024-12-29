@@ -1,42 +1,39 @@
 /* General */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%; /* Asegura que cubra toda la pantalla */
-    background-color: #000; /* Fondo negro */
-    color: #fff; /* Texto blanco por defecto */
-    overflow-x: hidden; /* Evita el scroll horizontal no deseado */
-}
 
 body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Fondo negro para todo */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    min-height: 100vh;
 }
 
-nav{
+nav {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header {
+
     display: flex;
-    background-color: #1b1b1b; /* Fondo del header */
-    align-items: center;
     justify-content: space-between;
-    color: white;
-    padding: 11px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #1b1b1b;
+    color: #fff;
+    
 }
 
 .title {
+    
     margin: 0;
     font-size: 48px;
-    text-align: center;
     flex: 1;
-    margin-right: 550px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px green, 0 0 25px green;
-    animation: fadeIn 2s backwards;
+    animation: fadeIn 2s ease-in-out;
     font-family: 'Arial Black', sans-serif;
     color: red;
 }
@@ -103,7 +100,26 @@ ul li:hover {
     color: black;
 }
 
+.seccion-juego {
+    flex: 1; /* Hace que este div ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: black; /* Mantén el fondo oscuro */
+    width: 100%;
+    min-height: calc(100vh - 120px); /* Ajusta la altura mínima restando el header */
+    box-sizing: border-box; /* Incluye padding y borde en las dimensiones */
+}
 
+
+.seccion-juego img {
+    max-width: 90%; /* Asegura que las imágenes no se desborden */
+    
+}
 /* Sección de personaje */
 .personaje {
     text-align: center;
@@ -112,7 +128,6 @@ ul li:hover {
 
 .heroe-image {
     width: 450px;
-    /* max-width: 300px; */
     height: 300px;
     border: 5px solid green;
     border-radius: 10px;
@@ -127,32 +142,32 @@ ul li:hover {
 /* Footer */
 footer.negro {
     background-color: #1b1b1b; /* Fondo oscuro */
-    color: #fff; /* Texto blanco */
     padding: 20px; /* Espaciado interno */
     text-align: center; /* Centrado de texto */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+    margin-top: auto; /* Asegura que el footer esté en la parte inferior */
 }
 
 footer.negro h5 {
     font-size: 18.5px;
     margin: 5px 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Sombra para el texto */
-    color: #ffeb3b; /* Color amarillo para resaltar */
+    color: #ffeb3b; /* Color amarillo */
     animation: fadeIn 2s ease-out;
 }
 
 footer.negro h5:hover {
     color: #ff4d4d; /* Cambiar color al pasar el ratón */
-    text-shadow: 1px 1px 5px rgba(255, 0, 0, 0.8); /* Resaltar la sombra en hover */
+    text-shadow: 1px 1px 5px rgba(255, 0, 0, 0.8); /* Resaltar sombra */
 }
 
-h2{
+h2 {
     margin-bottom: 25px;
 }
 
 .resultado-juego {
     position: fixed;
-    top: calc(70px); /* Altura del header */
+    top: 80px; /* Altura del header */
     left: 0;
     width: 100%;
     height: calc(100vh - 70px); /* Tamaño de la pantalla menos el header */
@@ -165,26 +180,23 @@ h2{
     text-align: center;
     z-index: 1000; /* Asegura que esté encima de otros elementos */
 }
-  
+
 .resultado-juego h1 {
     font-size: 48px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px green, 0 0 25px red;
     animation: fadeIn 1.5s ease-out;
 }
-  
-  
 
-  /* Animaciones */
 @keyframes fadeIn {
     from {
-    opacity: 0;
-    transform: translateY(-20px);
+        opacity: 0;
+        transform: translateY(-20px);
     }
     to {
-    opacity: 1;
-    transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
+}
 
 .opciones li{
 

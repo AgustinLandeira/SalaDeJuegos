@@ -19,7 +19,7 @@ export const routes: Routes = [
     {path:"formulario",component:FormularioComponent,canDeactivate:[formGuard]},
     { //para acceder a un modulo
         path:"juegos",// el import le pasa la ruta relativa y devuelve una promesa y el .then muestra lo que devuelve
-        canActivate:[authServiceGuard], 
+        canActivate:[authServiceGuard],
         loadChildren: () => import("./modulos/juegos/juegos.module").then(m => m.JuegosModule)
     },
     {path:"**", component:PageNotFoundComponent},

@@ -1,4 +1,8 @@
-<main class="form-signin">
+
+<body>
+
+
+  <main class="form-signin">
     <div class="background-image"></div>
       <div>
         <h1 class="h3 mb-3 fw-normal" id="titulo">Registrarse</h1>
@@ -17,11 +21,13 @@
         <br>
         <a routerLink="/login"  routerLinkActive="active-route" class="iniciar-sesion"> ¿Ya tenes una cuenta? inicia sesion.</a>
       </div>
+
+      <div class="alert alert-danger" role="alert" id="error" *ngIf="this.registrado == false"> 
+        {{ msjError }}
+      </div>
   </main>
-  @if(this.registrado == false){
+  
 
-    <div class="alert alert-danger" role="alert" id="error"> 
-      {{ msjError }}
-    </div>
+</body>
 
-  }
+

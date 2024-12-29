@@ -6,12 +6,13 @@ import { Firestore, provideFirestore } from '@angular/fire/firestore';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import Swal from 'sweetalert2';
 import { HomeComponent } from '../home/home.component';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule,RouterLink,RouterLinkActive,HomeComponent ],
+  imports: [FormsModule,RouterLink,RouterLinkActive,HomeComponent,CommonModule ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

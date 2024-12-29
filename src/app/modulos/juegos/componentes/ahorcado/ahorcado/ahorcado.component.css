@@ -1,41 +1,37 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%; /* Asegura que cubra toda la pantalla */
-    background-color: #000; /* Fondo negro */
-    color: #fff; /* Texto blanco por defecto */
-    overflow-x: hidden; /* Evita el scroll horizontal no deseado */
-}
-
 body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Fondo negro para todo */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    min-height: 100vh;
 }
 
-nav{
+nav {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header {
+
     display: flex;
-    background-color: #1b1b1b; /* Fondo del header */
-    align-items: center;
     justify-content: space-between;
-    color: white;
-    padding: 11px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #1b1b1b;
+    color: #fff;
+    
 }
 
 .title {
-    margin: 5px;
-    font-size: 40px;
-    text-align: center;
+    
+    margin: 0;
+    font-size: 48px;
     flex: 1;
-    margin-right: 670px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px green, 0 0 25px green;
-    animation: fadeIn 2s backwards;
+    animation: fadeIn 2s ease-in-out;
     font-family: 'Arial Black', sans-serif;
     color: red;
 }
@@ -101,6 +97,21 @@ ul li:hover {
     color: black;
 }
 
+/* Sección del Juego */
+.seccion-juego {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+    padding: 20px;
+    min-height: calc(100vh - 120px);
+    box-sizing: border-box;
+}
+
+
 .ahorcado {
     text-align: center;
     margin: 40px 0;
@@ -111,9 +122,9 @@ ul li:hover {
     border: 5px solid green;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 255, 0, 0.5);
-    transition: transform 0.3s ease;
     width: 260px;
     height: 341px;
+    transition: transform 0.3s ease;
 }
 
 h2{
@@ -121,10 +132,10 @@ h2{
 }
 
 .letras {
-    display: flex; /* Alinea los botones en fila */
-    justify-content: center; /* Centra los botones horizontalmente */
-    flex-wrap: wrap; /* Permite que se ajusten si no caben en una fila */
-    gap: 10px; /* Espacio entre los botones */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-top: 20px;
 }
 
@@ -144,42 +155,45 @@ h2{
     color: black;
 }
 
-.ahorcado #palabra {
-    font-size: 20px; /* Tamaño de fuente más grande */
-    color: red; /* Texto rojo */
-    background-color: rgba(0, 128, 0, 0.8); /* Fondo verde semitransparente */
-    padding: 10px 20px; /* Espaciado interno */
-    border: 2px solid green; /* Borde verde */
-    border-radius: 10px; /* Bordes redondeados */
-    text-align: center; /* Centrado del texto */
-    margin: 20px auto; /* Separación y centrado automático */
-    width: fit-content; /* Ancho ajustado al contenido */
-    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.5); /* Sombra */
-    font-weight: bold; /* Negrita */
-    letter-spacing: 1px; /* Espaciado entre letras */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Sombra en el texto */
+.letras button:disabled {
+    color: white;
+    background-color: #ccc;
+    cursor: not-allowed;
+    border: none;
+    
+}
+
+
+
+#palabra {
+    font-size: 20px;
+    color: red;
+    background-color: rgba(0, 128, 0, 0.8);
+    padding: 10px 20px;
+    border: 2px solid green;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto;
+    width: fit-content;
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.5);
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.ahorcado #palabra:hover {
-    background-color: green; /* Cambia a un verde sólido al pasar el mouse */
-    transform: scale(1.05); /* Efecto de agrandamiento */
+#palabra:hover {
+    background-color: green;
+    transform: scale(1.05);
 }
 
-.letras button:disabled {
-    color: white;
-    border: none;
-    background-color: #ccc; /* Color de fondo cuando está deshabilitado */
-    color: #666; /* Color del texto cuando está deshabilitado */
-    cursor: not-allowed; /* Cambiar el cursor */
-}
 
 .resultado-juego {
     position: fixed;
-    top: calc(70px); /* Altura del header */
+    top: 80px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 70px); /* Tamaño de la pantalla menos el header */
+    height: calc(100vh - 70px);
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -187,9 +201,9 @@ h2{
     justify-content: center;
     color: red;
     text-align: center;
-    z-index: 1000; /* Asegura que esté encima de otros elementos */
+    z-index: 1000;
 }
-  
+
 .resultado-juego h1 {
     font-size: 48px;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px green, 0 0 25px red;

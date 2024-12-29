@@ -3,10 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink,RouterLinkActive } from '@angular/router';
 import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
 import Swal from 'sweetalert2';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule,RouterLink,RouterLinkActive],
+  imports: [FormsModule,RouterLink,RouterLinkActive,CommonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })

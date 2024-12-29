@@ -3,8 +3,13 @@ html, body {
     height: 100%;
     margin: 0;
     display: flex;
-    align-items: flex-start; /* Cambiado a flex-start para alinear al inicio */
     justify-content: center;
+    align-items: center;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/sala-de-juegos-1c9ea.appspot.com/o/juegos.jpg?alt=media&token=55c3e2da-1490-4df5-8892-b1ae0c34f281');
+    background-size: cover; /* Cubre toda el área del contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+    z-index: -1; /* Asegura que la imagen quede detrás del contenido */
 }
 
 body {
@@ -12,18 +17,6 @@ body {
     box-sizing: border-box;
 }
 
-.background-image{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/sala-de-juegos-1c9ea.appspot.com/o/juegos.jpg?alt=media&token=55c3e2da-1490-4df5-8892-b1ae0c34f281');
-  background-size: cover; /* Cubre toda el área del contenedor */
-  background-position: center; /* Centra la imagen */
-  background-repeat: no-repeat; /* Evita la repetición de la imagen */
-  z-index: -1; /* Asegura que la imagen quede detrás del contenido */
-}
 
 .form-signin {
     max-width: 330px;
@@ -31,8 +24,8 @@ body {
     background-color: black; /* Color de fondo opcional */
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
-    margin-top: 150px; /* Ajusta este valor para mover el formulario más abajo */
-    margin-left: 600px;
+    text-align: center;
+    justify-content: center;
 }
 
 .form-signin .form-floating:focus-within {
@@ -49,8 +42,9 @@ body {
 
 .iniciar-sesion{
     color: white;
-    margin-left: 35px;
+    text-align: center;
     font-size: medium;
+    
 }
 
 #titulo{
@@ -58,15 +52,25 @@ body {
 }
 
 .alert-danger{
-    margin-left: 600px;
-    max-width:330px;
-    text-align: center;
+    position: absolute;
+    margin-top: 15px; /* Añade espacio superior */
+    max-width: 330px; /* Igual que el formulario */
+    text-align: center; /* Centrado */
+    margin-left: auto; /* Centra horizontalmente */
+    width: 220px;
+    
 }
 
 .alert-success{
 
-    margin-left: 600px;
-    max-width:330px;
-    text-align: center;
+    margin-top: 15px; /* Añade espacio superior */
+    max-width: 330px; /* Igual que el formulario */
+    text-align: center; /* Centrado */
+    margin-left: auto; /* Centra horizontalmente */
+    margin-right: auto; /* Centra horizontalmente */
 
+}
+
+a{
+    text-align: center;
 }

@@ -3,7 +3,7 @@
         <nav>
             <h1 class="title">Preguntados</h1>
             <ul>
-                <li><button (click)="verDescripcion()">Descripcion</button></li>
+                <li><button (click)="verDescripcion()">Descripcion del juego</button></li>
                 <li><button (click)="reiniciarJuego()">Reiniciar juego </button></li>
                 <li><button (click)="volverHome()">Volver al menú principal</button></li>
                 
@@ -20,31 +20,37 @@
 
     </div>
 
-    <div class="personaje" *ngIf="paisActual != null">
-        <h2>¿Que pais es este?</h2>
-        <img [src]="paisActual.imagen" class="heroe-image">
+    <div class="seccion-juego">
+
+        <div class="personaje" *ngIf="paisActual != null">
+                <h2>¿Que pais es este?</h2>
+                <img [src]="paisActual.imagen" class="heroe-image">
+            </div>
+
+            <div *ngIf="paisActual != null">
+                <ul class="opciones">
+                    <li *ngFor="let opcion of listaOpciones" (click)="compararOpcion(opcion)">
+                        {{opcion}}
+                    </li>
+                </ul>
+            </div>
+
+            <br>
+
+            <footer class="negro" *ngIf="terminado == false">
+                <h5>preguntas correctas: {{preguntasCorrectas}}</h5>
+                <h5>preguntas Incorrectas: {{preguntasIncorrectas}} </h5>
+                
+
+            </footer>
+
+            <div *ngIf="terminado" class="resultado-juego">
+                <h1>{{resultado}}</h1>
+
+            </div>
+
     </div>
 
-    <div *ngIf="paisActual != null">
-        <ul class="opciones">
-            <li *ngFor="let opcion of listaOpciones" (click)="compararOpcion(opcion)">
-                {{opcion}}
-            </li>
-        </ul>
-    </div>
-
-    <br>
-
-    <footer class="negro" *ngIf="terminado == false">
-        <h5>preguntas correctas: {{preguntasCorrectas}}</h5>
-        <h5>preguntas Incorrectas: {{preguntasIncorrectas}} </h5>
-        
-
-    </footer>
-
-    <div *ngIf="terminado" class="resultado-juego">
-        <h1>{{resultado}}</h1>
-
-    </div>
+    
 
 </body>
